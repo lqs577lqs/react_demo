@@ -1,6 +1,5 @@
 import React, { PureComponent } from "react";
-import ActivityMemory from "../activity_memory";
-import G6Test from "../g6_test";
+import DemoList from "../demo_list";
 import "./assets/index.less"
 class HomePage extends PureComponent {
     render() {
@@ -9,7 +8,7 @@ class HomePage extends PureComponent {
 
             </div>
             <div className="home-content">
-                
+                <DemoList />
             </div>
         </div>
     }

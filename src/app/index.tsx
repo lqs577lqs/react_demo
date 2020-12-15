@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Route } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import HomePage from "./pages/home/index";
 import ActivityMemory from "./pages/activity_memory";
@@ -16,7 +16,10 @@ function RouterConfig() {
     return  <Router 
                 history={createBrowserHistory()}
             >
-                {routes.map((value=><Route path={value.path} component={value.lazeComponent}/>))}
+                <Switch>
+                    {routes.map((value=> <Route key={value.path} path={value.path} component={value.lazeComponent}/>))}
+                </Switch>
+                {/* {routes.map((value=> {return value.redirect?<Route key={value.path} path={value.path}><Redirect to={value.redirect}/></Route>:<Route key={value.path} path={value.path} component={value.lazeComponent}/>}))} */}
             </Router>
 }
 

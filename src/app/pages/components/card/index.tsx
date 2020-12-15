@@ -1,13 +1,15 @@
 import React, { PureComponent } from "react";
 import "./assets/index.less"
-export interface CardProps{
-    title?:string
+export interface CardProps {
+    title?: any
+
+    width?: number | string
 }
 class Card extends PureComponent<CardProps> {
     render() {
-        return <div className="card">
+        return <div style={{ width: this.props.width || "unset" }} className="card">
             {
-                this.props.title?<div className="card-title">{this.props.title}</div>:null
+                this.props.title ? <div className="card-title">{this.props.title}</div> : null
             }
             {this.props.children}
         </div>
