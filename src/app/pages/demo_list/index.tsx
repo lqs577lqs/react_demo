@@ -8,11 +8,6 @@ import { useDispatch } from "react-redux";
 
 const DemoList:FC<{}> = (props) => {
     const dispatch = useDispatch();
-    const addItem = useCallback(
-        () => dispatch(add()),
-        [ dispatch ]
-    )
-    debugger
     const { add } = useFunctions()();
     const state = useUnit();
     console.log("state",state);
@@ -21,7 +16,12 @@ const DemoList:FC<{}> = (props) => {
         <div className="demo-container">
             <Button onClick={() => { 
                 console.log("jinr")
-                addItem();
+                try{
+                    console.log('add',add);
+                    add();
+                }catch(e){
+                    console.log('e',e);
+                }
             }}>这个是:{state}</Button>
             {
                 data.map(val => {

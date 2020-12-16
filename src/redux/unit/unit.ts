@@ -8,8 +8,6 @@ const initState = {
 
 export const unitReducer = createReducer(initState, builder=>{
     builder.addCase(add,(state,action) => {
-        state.number += 1;
-        console.log('state',state);
-        console.log('action',action);
+        state.number += 1
     })
 });
