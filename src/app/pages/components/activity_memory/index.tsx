@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import { Button, Select } from "antd";
-import Card from "../components/card";
+import Card from "../card";
 import "./assets/index.less";
 
 interface ActivityMemoryState {

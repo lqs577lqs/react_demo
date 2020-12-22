@@ -8,4 +8,4 @@ export const store = configureStore({
 });
 
 export type ReduxState = ReturnType<typeof store.getState>
-export type ReduxDispatch = typeof store.dispatch
+// export type ReduxDispatch = typeof store.dispatch

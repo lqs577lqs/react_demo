@@ -1,6 +1,6 @@
 import { createAction, createReducer } from "@reduxjs/toolkit"
 
-export const add = createAction<void>("add");
+export const add = createAction<number>("add");
 
 const initState = {
     number: 0,
@@ -8,6 +8,6 @@ const initState = {
 
 export const unitReducer = createReducer(initState, builder=>{
     builder.addCase(add,(state,action) => {
-        state.number += 1
+        state.number += action.payload || 1;
     })
 });

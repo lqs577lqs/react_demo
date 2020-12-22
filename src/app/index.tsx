@@ -2,7 +2,8 @@ import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import HomePage from "./pages/home/index";
-import ActivityMemory from "./pages/activity_memory";
+import ActivityMemory from "./pages/components/activity_memory";
+import DemoList from "./pages/demo_list/index";
 
 const routes = [{
     path: "/home",
@@ -10,6 +11,9 @@ const routes = [{
 },{
     path: "/activity_memory",
     lazeComponent: ActivityMemory
+},{
+    path: "/demo_list",
+    lazeComponent: DemoList
 }];
 
 function RouterConfig() {

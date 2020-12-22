@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import RouterConfig from "./app/index";
 import { Provider } from "react-redux";
-import { store } from "./redux/store";
+import { store } from "./redux/index";
 import "./index.less";
 
 class App {

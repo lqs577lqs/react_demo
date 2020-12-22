@@ -1,6 +1,5 @@
-import React, { PureComponent, ReactNode } from "react";
+import React, { PureComponent } from "react";
 import "../assets/index.less";
-import { connect } from 'react-redux';
 
 class DemoList extends PureComponent<any, any> {
     render() {
@@ -10,4 +9,4 @@ class DemoList extends PureComponent<any, any> {
     }
 }
 
-export default connect((state: any) => { return { number: state.numberReducer.number } })(DemoList);
+export default DemoList;

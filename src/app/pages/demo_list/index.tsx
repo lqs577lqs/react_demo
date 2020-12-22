@@ -1,28 +1,21 @@
-import React, { FC, useCallback } from "react";
+import React, { FC } from "react";
 import Card from "../components/card";
 import DemoContent from "./components/demoContent"
 import { Button } from "antd";
 import "./assets/index.less";
 import { useFunctions, useUnit } from "../../../redux/unit/hooks";
-import { useDispatch } from "react-redux";
+import { createBrowserHistory } from 'history';
 
-const DemoList:FC<{}> = (props) => {
-    const dispatch = useDispatch();
+const DemoList: FC<{}> = (props) => {
     const { add } = useFunctions()();
+    let rHistory = createBrowserHistory();
     const state = useUnit();
-    console.log("state",state);
     let data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+
     return (
         <div className="demo-container">
-            <Button onClick={() => { 
-                console.log("jinr")
-                try{
-                    console.log('add',add);
-                    add();
-                }catch(e){
-                    console.log('e',e);
-                }
-            }}>这个是:{state}</Button>
+            <Button onClick={() => { add(5) }}>这个是:{state.number}</Button>
+            <Button onClick={() => { rHistory.push({ pathname: "/home" });history.go(); }}>主页</Button>
             {
                 data.map(val => {
                     return <Card key={val} title={val} width="30%" children={<DemoContent />} />

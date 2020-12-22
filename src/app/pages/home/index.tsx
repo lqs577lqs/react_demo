@@ -1,17 +1,18 @@
-import React, { PureComponent } from "react";
-import DemoList from "../demo_list";
+import React, { FC } from "react";
+import { useUnit } from "../../../redux/unit/hooks";
 import "./assets/index.less"
-class HomePage extends PureComponent {
-    render() {
-        return <div className="home-page">
-            <div className="home-guide">
+const HomePage:FC<{}> = (props) => {
+    const state = useUnit();
+    console.log('state',state);
 
+    return  <div className="home-page">
+                <div className="home-guide">
+
+                </div>
+                <div className="home-content">
+                    {state.number}
+                </div>
             </div>
-            <div className="home-content">
-                <DemoList />
-            </div>
-        </div>
-    }
 }
 
 export default HomePage;
