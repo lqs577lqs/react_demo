@@ -1,0 +1,18 @@
+.cir-container{
+    border-radius: 10px;
+    border: solid 1px #000000;
+    position: relative;
+    &-content{
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);/*50%为自身尺寸的一半*/
+    }
+    &.click{
+        cursor: pointer;
+        transition: ease-in-out 0.2s;
+        &:HOVER{
+            opacity: 0.5;
+        }
+    }
+}

@@ -3,8 +3,8 @@
  * @version: 
  * @Author: Leslie
  * @Date: 2020-10-09 15:57:58
- * @LastEditors: Leslie
- * @LastEditTime: 2020-10-13 10:31:11
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-12-22 16:07:58
  */
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -44,6 +44,12 @@ module.exports = {
                 'css-loader',
                 'less-loader'
               ]
+            },
+            {  
+                test: /\.(png|jpg|gif|svg)$/,  // 要加载的文件后缀，无引号
+                use: [              // 使用的加载器
+                    'file-loader'
+                ]
             }
         ]
     },
