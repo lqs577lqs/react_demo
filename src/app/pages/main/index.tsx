@@ -5,6 +5,7 @@ import CircleContainer from "../components/circle_container";
 import DemoList from "../demo_list";
 import "./assets/index.less"
 import { QqOutlined, ZhihuOutlined, GithubOutlined, MailOutlined } from '@ant-design/icons';
+import Card from "../components/card";
 
 const MainPage: FC<{}> = (props) => {
     const { add } = useFunctions()();
@@ -20,6 +21,21 @@ const MainPage: FC<{}> = (props) => {
 
             </div>
             <div className="main-body">
+                <div className="main-body-text white">
+                    <span>{`《海贼王剧场版》是根据漫画家尾田荣一郎创作的漫画《航海王》改编的系列动画电影，影片讲述的是主人公“蒙奇·D·路飞”所带领的海贼团的故事。第一部剧场版《海贼王》作品于2000年3月4日在日本上映 [1]  。第13部和第14部剧场版《海贼王》曾引进中国大陆，分别于2016年11月11日和2019年10月18日内地上映 [2-3]  ，最终分别获得1.07亿和2.04亿的票房。`}</span>
+                </div>
+                <div className="main-body-text">
+                    <div className="main-body-git">
+                        <h1>GIT</h1>
+                        <div className="main-body-git-card">
+                            {
+                                [1,2,3,4].map(val => {
+                                    return <Card key={val} title={null} width="100%" children={<span>{val}</span>} />
+                                })
+                            }
+                        </div>
+                    </div>
+                </div>
                 <div className="main-body-text white">
                     <span>{`《海贼王剧场版》是根据漫画家尾田荣一郎创作的漫画《航海王》改编的系列动画电影，影片讲述的是主人公“蒙奇·D·路飞”所带领的海贼团的故事。第一部剧场版《海贼王》作品于2000年3月4日在日本上映 [1]  。第13部和第14部剧场版《海贼王》曾引进中国大陆，分别于2016年11月11日和2019年10月18日内地上映 [2-3]  ，最终分别获得1.07亿和2.04亿的票房。`}</span>
                 </div>
