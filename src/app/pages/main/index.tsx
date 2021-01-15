@@ -4,7 +4,7 @@ import { useFunctions, useUnit } from "../../../redux/unit/hooks";
 import CircleContainer from "../components/circle_container";
 import DemoList from "../demo_list";
 import "./assets/index.less"
-import { QqOutlined, ZhihuOutlined, GithubOutlined, MailOutlined } from '@ant-design/icons';
+import { QqOutlined, ZhihuOutlined, GithubOutlined, MailOutlined,RightCircleOutlined } from '@ant-design/icons';
 import Card from "../components/card";
 
 const MainPage: FC<{}> = (props) => {
@@ -15,6 +15,32 @@ const MainPage: FC<{}> = (props) => {
         window.open(url);
     }
 
+    /**
+     * @function: 获取git信息
+     * @author: Leslie
+     */
+    const getGitInfo = () => {
+        return [{
+            name: "reactDemo",
+            url: "https://github.com/lqs577lqs/react_demo",
+            render: (<span>reactDemo</span>)
+        },{
+            name: "webPro",
+            url: "https://github.com/lqs577lqs/web.pro",
+            render: (<span>webPro</span>)
+        },{
+            name: "个人项目",
+            url: "https://github.com/lqs577lqs/reaoniss",
+            render: (<span>个人项目</span>)
+        },{
+            name: "test",
+            url: "http://www.baidu.com",
+            render: (<span>test</span>)
+        }]
+    }
+
+
+
     return (
         <div className="main">
             <div className="main-header">
@@ -22,26 +48,29 @@ const MainPage: FC<{}> = (props) => {
             </div>
             <div className="main-body">
                 <div className="main-body-text white">
-                    <span>{`《海贼王剧场版》是根据漫画家尾田荣一郎创作的漫画《航海王》改编的系列动画电影，影片讲述的是主人公“蒙奇·D·路飞”所带领的海贼团的故事。第一部剧场版《海贼王》作品于2000年3月4日在日本上映 [1]  。第13部和第14部剧场版《海贼王》曾引进中国大陆，分别于2016年11月11日和2019年10月18日内地上映 [2-3]  ，最终分别获得1.07亿和2.04亿的票房。`}</span>
+                    <span className="main-body-text-content">{`雷钦淞（Leslie），家乡在四川泸州，毕业于成都理工大学，专业是数字媒体技术。主要兴趣为web开发，曾从事Java开发并完成国家电网web端管理系统-物资调配项目,以及国家电网web端管理系统-非招标管理项目。后对web前端开发产生兴趣专攻web前端，熟悉运用Jquery,Vue,React框架进行项目开发，在开发过程中熟练掌握js，ts，jsx，tsx等语言，同时熟练掌握webpack项目打包管理。在转为web前端开发后参与公司产品Nebula、Proxima开发，参与水井坊、老白干、冈本等B端管理系统开发，参与劲酒小程序C端项目开发。`}</span>
                 </div>
                 <div className="main-body-text">
                     <div className="main-body-git">
-                        <h1>GIT</h1>
+                        <div className="main-body-git-header">
+                            <h1>GIT</h1>
+                            <RightCircleOutlined onClick={()=>{linkToContact("http://www.github.com")}}/>
+                        </div>
                         <div className="main-body-git-card">
                             {
-                                [1,2,3,4].map(val => {
-                                    return <Card key={val} title={null} width="100%" children={<span>{val}</span>} />
+                                getGitInfo().map(val => {
+                                    return <Card onClick={()=>{window.open(val.url)}} key={val.name} title={null} width="100%" children={val.render} />
                                 })
                             }
                         </div>
                     </div>
                 </div>
-                <div className="main-body-text white">
-                    <span>{`《海贼王剧场版》是根据漫画家尾田荣一郎创作的漫画《航海王》改编的系列动画电影，影片讲述的是主人公“蒙奇·D·路飞”所带领的海贼团的故事。第一部剧场版《海贼王》作品于2000年3月4日在日本上映 [1]  。第13部和第14部剧场版《海贼王》曾引进中国大陆，分别于2016年11月11日和2019年10月18日内地上映 [2-3]  ，最终分别获得1.07亿和2.04亿的票房。`}</span>
+                {/* <div className="main-body-text white">
+                    <span className="wating">开发中。。。</span>
                 </div>
                 <div className="main-body-text">
-                    <span>{`《海贼王剧场版》是根据漫画家尾田荣一郎创作的漫画《航海王》改编的系列动画电影，影片讲述的是主人公“蒙奇·D·路飞”所带领的海贼团的故事。第一部剧场版《海贼王》作品于2000年3月4日在日本上映 [1]  。第13部和第14部剧场版《海贼王》曾引进中国大陆，分别于2016年11月11日和2019年10月18日内地上映 [2-3]  ，最终分别获得1.07亿和2.04亿的票房。`}</span>
-                </div>
+                    <span className="wating">开发中。。。</span>
+                </div> */}
             </div>
             <div className="main-footer">
                 <div className="main-footer-contact">

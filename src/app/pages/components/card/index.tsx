@@ -4,10 +4,12 @@ export interface CardProps {
     title?: any
 
     width?: number | string
+
+    onClick?: Function
 }
 class Card extends PureComponent<CardProps> {
     render() {
-        return <div style={{ width: this.props.width || "unset" }} className="card">
+        return <div onClick={()=>{this.props.onClick && this.props.onClick()}} style={{ width: this.props.width || "unset" }} className="card">
             {
                 this.props.title ? <div className="card-title">{this.props.title}</div> : null
             }
